@@ -1,2 +1,1 @@
-# git_test
-The Odin Project
+# The Odin Project
