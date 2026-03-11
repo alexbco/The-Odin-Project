@@ -17,25 +17,53 @@ function playRound(humanChoice, computerChoice) {
         (humanChoice === "papel" && computerChoice === "piedra") ||
         (humanChoice === "piedra" && computerChoice === "tijera")
     ) {
-        humanScore += 1;
+        marcadorPersona++;
+        marcador_persona.textContent = marcadorPersona;
         console.log("Ganas la ronda");
     } 
     else {
-        computerScore += 1;
+        marcadorOrdenador++;
+        marcador_ordenador.textContent = marcadorOrdenador;
         console.log("Pierdes la ronda");
+    }
+    if(marcadorPersona === 5){
+        alert("Ganaste");
+        marcadorPersona = 0;
+        marcadorOrdenador = 0;
+        marcador_ordenador.textContent = marcadorOrdenador;
+        marcador_persona.textContent = marcadorPersona;
+
+    }else if(marcadorOrdenador === 5){
+        alert("Perdiste");
+        marcadorPersona = 0;
+        marcadorOrdenador = 0;
+        marcador_ordenador.textContent = marcadorOrdenador;
+        marcador_persona.textContent = marcadorPersona;
     }
 }
 
-let computerScore = 0;
-let humanScore = 0;
+let marcador_ordenador = document.querySelector("#computer-score");
+let marcador_persona = document.querySelector("#player-score");
+let marcadorPersona = 0;
+let marcadorOrdenador = 0;
+const boton_piedra = document.querySelector("#piedra");
+const boton_papel = document.querySelector("#papel");
+const boton_tijera = document.querySelector("#tijera");
 
-for (let i = 1; i <= 5; i++) {
-    console.log("Jugada: " + i);
-    const humanSelection = getHumanChoice();
-    const computerSelection = getComputerChoice();
-    console.log("Ordenador eligió: " + computerSelection);
-    playRound(humanSelection, computerSelection);
-}
 
-console.log("Marcador humano: " + humanScore);
-console.log("Marcador ordenador: " + computerScore);
+marcador_ordenador.textContent = 0
+marcador_persona.textContent = 0
+
+boton_piedra.addEventListener("click", () => {
+    playRound("piedra", getComputerChoice());
+});
+
+boton_papel.addEventListener("click", () => {
+    playRound("papel", getComputerChoice());
+});
+
+boton_tijera.addEventListener("click", () => {
+    playRound("tijera", getComputerChoice());
+});
+
+

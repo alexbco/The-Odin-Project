@@ -1,14 +1,42 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Piedra Papel Tijera</title>
+    <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <h2>Testing new branch</h2>
+
+    <div class="container">
+
+        <h1>Piedra, Papel o Tijera</h1>
+
+        <div class="buttons">
+            <button class="btn" data-choice="piedra" id="piedra">Piedra</button>
+            <button class="btn" data-choice="papel" id="papel">Papel</button>
+            <button class="btn" data-choice="tijera" id="tijera">Tijera</button>
+        </div>
+
+        <div class="result">
+            <p id="resultado">Elige una opción para empezar</p>
+        </div>
+
+        <div class="score">
+            <div class="score-box">
+                <p>Ordenador</p>
+                <span id="computer-score"></span>
+            </div>
+
+            <div class="score-box">
+                <p>Tú</p>
+                <span id="player-score"></span>
+            </div>
+        </div>
+
+    </div>
     <script src="./script.js"></script>
 </body>
 
